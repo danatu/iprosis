@@ -1,0 +1,178 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZVEHICLE_SIMULATION_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="pdf" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="content"/>
+                </Key>
+                <Property Name="content" Type="Edm.Binary" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="vehicle_addition" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vhcle"/>
+                </Key>
+                <Property Name="kdgrp" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="KDGRP" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vhcle" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VHCLE" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ConfigId" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="CONFIG_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InstId" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="INST_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Charc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="CHARC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CharcTxt" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="CHARC_TXT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="VALUE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValueTxt" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="VALUE_TXT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Author" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="AUTHOR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValueTo" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="VALUE_TO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Valcode" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="VALCODE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="vehicle_cost" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="matnr"/>
+                    <PropertyRef Name="count"/>
+                    <PropertyRef Name="wrbtr"/>
+                    <PropertyRef Name="waers"/>
+                    <PropertyRef Name="dmbtr"/>
+                    <PropertyRef Name="text"/>
+                </Key>
+                <Property Name="matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="MATNR" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="kdgrp" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="KDGRP" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="count" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="COUNT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wrbtr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="WRBTR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="waers" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="WAERS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="dmbtr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="DMBTR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="rel_cst" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="REL_CST" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="manuf_inv" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="MANUF_INV" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="cst_dmbtr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="CST_DMBTR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="cst_wrbtr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="CST_WRBTR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="text" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="TEXT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="vehicle_node" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Zlevel" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Child" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Text, 40 Characters Long" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Parent" Type="Edm.Int32" Nullable="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vhcle" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VHCLE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LogoPath" Type="Edm.String" Nullable="false" MaxLength="127" sap:label="File name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="customer_group" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kdgrp"/>
+                </Key>
+                <Property Name="Kdgrp" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Customer group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="simulation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vhcle"/>
+                </Key>
+                <Property Name="kdgrp" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vhcle" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Internal Vehicle Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Char18" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesPrice" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char15" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VehicleCost" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxCost" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AdditionCost" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cost" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char15" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GrossProfit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char15" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Transport" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Storage" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VehiclePreparation" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zway" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GoodWill" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AgentCommission" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TradeinCommission" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KlsCommission" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StockFunding" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Publication" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZtirCond" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalCost" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperatingProfit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GrossProfitPer" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Char15" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperatingProfitPer" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zzwty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZzwtyManuf" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZztradinSubsidy" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VehicleCostEur" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VehicleCostCurr" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="char3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Others" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char 11" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PriceWithVat" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VatPerc" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxCostRate" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="7" sap:label="Char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxCostEuro" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:label="Char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VehicleCostRate" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="7" sap:label="Char13" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="vehicle_additionSet" Relationship="ZVEHICLE_SIMULATION_SRV.simulation_addition" FromRole="FromRole_simulation_addition" ToRole="ToRole_simulation_addition"/>
+            </EntityType>
+            <Association Name="simulation_addition" sap:content-version="1">
+                <End Type="ZVEHICLE_SIMULATION_SRV.simulation" Multiplicity="1" Role="FromRole_simulation_addition"/>
+                <End Type="ZVEHICLE_SIMULATION_SRV.vehicle_addition" Multiplicity="*" Role="ToRole_simulation_addition"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_simulation_addition">
+                        <PropertyRef Name="Vhcle"/>
+                    </Principal>
+                    <Dependent Role="ToRole_simulation_addition">
+                        <PropertyRef Name="Vhcle"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZVEHICLE_SIMULATION_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="pdfCollection" EntityType="ZVEHICLE_SIMULATION_SRV.pdf" sap:content-version="1"/>
+                <EntitySet Name="vehicle_additionSet" EntityType="ZVEHICLE_SIMULATION_SRV.vehicle_addition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="vehicle_costSet" EntityType="ZVEHICLE_SIMULATION_SRV.vehicle_cost" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="vehicle_tree" EntityType="ZVEHICLE_SIMULATION_SRV.vehicle_node" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="customer_groupSet" EntityType="ZVEHICLE_SIMULATION_SRV.customer_group" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="simulationSet" EntityType="ZVEHICLE_SIMULATION_SRV.simulation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="simulation_additionSet" Association="ZVEHICLE_SIMULATION_SRV.simulation_addition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="simulationSet" Role="FromRole_simulation_addition"/>
+                    <End EntitySet="vehicle_additionSet" Role="ToRole_simulation_addition"/>
+                </AssociationSet>
+                <FunctionImport Name="simulation_output" ReturnType="ZVEHICLE_SIMULATION_SRV.pdf" EntitySet="pdfCollection" m:HttpMethod="POST">
+                    <Parameter Name="Description" Type="Edm.String" Mode="In" MaxLength="40"/>
+                    <Parameter Name="PriceWithVat" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="DiscountPer" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Discount" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="SalesPriceWithVat" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="SalesPrice" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="VehicleCost" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="VehicleCostEur" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Rate" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="TaxCost" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="TaxCostForeign" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="TaxCostRate" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Zzwty" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="ZzwtyManuf" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="AdditionCost" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Cost" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="GrossProfit" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="GrossProfitPer" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Transport" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Storage" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="VehiclePreparation" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Zway" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="GoodWill" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="AgentCommission" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="ZztradinSubsidy" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="TradeinCommission" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="KlsCommission" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="StockFunding" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Publication" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="ZtirCond" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="Others" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="TotalCost" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="OperatingProfit" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="OperatingProfitPer" Type="Edm.Decimal" Mode="In" Precision="2" Scale="2"/>
+                    <Parameter Name="VehicleCostCurr" Type="Edm.String" Mode="In" MaxLength="3"/>
+                </FunctionImport>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://smlt-gwd:8000/sap/opu/odata/sap/ZVEHICLE_SIMULATION_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://smlt-gwd:8000/sap/opu/odata/sap/ZVEHICLE_SIMULATION_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
